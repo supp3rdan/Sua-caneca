@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sua Caneca · Canecas personalizadas</title>
+  <meta name="description" content="Canecas e xícaras personalizadas com o seu nome, foto ou frase. Peça pelo WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+/* Sua Caneca — identidade visual */
+:root {
+  --ink: #1F1A17;
+  --bg: #F4EFE9;
+  --accent: #C8553D;
+  --accent-dark: #A8432E;
+  --gray: #6B625C;
+  --white: #FFFFFF;
+  --radius: 16px;
+  --max: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Outfit', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+.container {
+  width: min(100% - 48px, var(--max));
+  margin-inline: auto;
+}
+
+/* ---------- Cabeçalho ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid rgba(31, 26, 23, .08);
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: 14px;
+}
+
+.logo svg { height: 56px; width: auto; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 16px;
+}
+
+.nav a { text-decoration: none; }
+.nav a:hover { color: var(--accent); }
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 2px solid var(--ink);
+  font: 600 16px/1 'Outfit', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+
+.btn-primary { background: var(--ink); color: var(--bg); }
+.btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+
+.btn-outline { background: transparent; color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: var(--bg); }
+
+/* ---------- Destaque ---------- */
+.hero { padding-block: 88px 72px; }
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+
+.hero h1 {
+  margin: 0 0 20px;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  font-weight: 600;
+}
+
+.hero h1 em { font-style: normal; color: var(--accent); }
+
+.hero p {
+  margin: 0 0 32px;
+  max-width: 480px;
+  font-size: 19px;
+  color: var(--gray);
+}
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.hero-art {
+  background: var(--white);
+  border-radius: 32px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-art svg { width: 100%; max-width: 420px; height: auto; }
+
+/* ---------- Seções ---------- */
+.section { padding-block: 80px; }
+
+.section-title {
+  margin: 0 0 12px;
+  font-size: clamp(30px, 4vw, 44px);
+  letter-spacing: -1px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.section-sub {
+  margin: 0 auto 48px;
+  max-width: 560px;
+  text-align: center;
+  color: var(--gray);
+  font-size: 18px;
+}
+
+/* ---------- Produtos ---------- */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(31, 26, 23, .10);
+}
+
+.card-art {
+  background: radial-gradient(circle at 50% 40%, #FFFFFF, #ECE7E2);
+  padding: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.card-art svg { width: 200px; height: 180px; }
+
+.card-body {
+  padding: 20px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.card h3 { margin: 0; font-size: 20px; font-weight: 600; }
+
+.card p { margin: 0; color: var(--gray); font-size: 15px; flex-grow: 1; }
+
+.price {
+  margin: 8px 0 12px;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -.5px;
+}
+
+.price small { font-size: 16px; font-weight: 400; color: var(--gray); }
+
+.card .btn { width: 100%; }
+
+/* ---------- Como funciona ---------- */
+.steps-section { background: var(--white); }
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  counter-reset: step;
+}
+
+.steps li { counter-increment: step; text-align: center; }
+
+.steps li::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--white);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.steps h3 { margin: 0 0 6px; font-size: 20px; font-weight: 600; }
+.steps p { margin: 0; color: var(--gray); }
+
+/* ---------- Chamada final ---------- */
+.cta {
+  background: var(--ink);
+  color: var(--bg);
+  text-align: center;
+}
+
+.cta h2 {
+  margin: 0 0 12px;
+  font-size: clamp(30px, 4vw, 44px);
+  letter-spacing: -1px;
+  font-weight: 600;
+}
+
+.cta p { margin: 0 0 32px; color: #D8D0C8; font-size: 18px; }
+
+.cta .btn-primary { background: var(--accent); border-color: var(--accent); color: var(--white); }
+.cta .btn-primary:hover { background: var(--bg); border-color: var(--bg); color: var(--ink); }
+
+/* ---------- Rodapé ---------- */
+.footer {
+  background: var(--ink);
+  color: #D8D0C8;
+  border-top: 1px solid rgba(244, 239, 233, .12);
+  padding-block: 32px;
+  font-size: 14px;
+}
+
+.footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.footer .logo svg { height: 44px; }
+
+/* ---------- Celular ---------- */
+@media (max-width: 800px) {
+  .hero { padding-block: 48px; }
+  .hero .container { grid-template-columns: 1fr; }
+  .hero-art { order: -1; padding: 24px; }
+  .nav a:not(.btn) { display: none; }
+  .logo svg { height: 44px; }
+  .section { padding-block: 56px; }
+}
+
+/* ---------- Exemplos ---------- */
+.eyebrow.center { text-align: center; }
+
+.ex-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.ex { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+
+.ex-photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: #E9E3DD;
+  aspect-ratio: 4 / 4.4;
+  box-shadow: 0 1px 2px rgba(31, 26, 23, .06), 0 10px 30px rgba(31, 26, 23, .08);
+}
+
+.ex-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.ex-photo:hover img, .ex-photo:focus-visible img { transform: scale(1.05); }
+.ex-photo:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.ex-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .92);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .3px;
+}
+
+.ex figcaption { display: flex; flex-direction: column; gap: 4px; padding-inline: 4px; }
+.ex figcaption p { margin: 0; color: var(--gray); font-size: 15px; }
+.ex figcaption a {
+  color: var(--accent-dark);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  padding-block: 6px;
+}
+.ex figcaption a:hover { text-decoration: underline; }
+
+.lightbox {
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  max-width: min(92vw, 720px);
+  max-height: 92vh;
+  background: transparent;
+  overflow: visible;
+}
+.lightbox::backdrop { background: rgba(31, 26, 23, .82); }
+.lightbox img { display: block; max-width: 100%; max-height: 88vh; border-radius: 20px; }
+.lightbox-close {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--bg);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
+}
+
+@media (max-width: 900px) { .ex-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; } }
+@media (max-width: 560px) {
+  .ex-grid { grid-template-columns: 1fr; }
+  .lightbox-close { top: 8px; right: 8px; }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo" aria-label="Sua Caneca, início"><svg xmlns="http://www.w3.org/2000/svg" viewBox="176.0 92.5 248.0 185.6" aria-hidden="true" focusable="false"><path d="M237.63 191.62Q233.36 191.62 229.26 190.48Q225.15 189.33 221.72 187.30Q218.28 185.28 215.79 182.36L223.90 174.15Q226.50 177.06 229.93 178.52Q233.36 179.97 237.52 179.97Q240.85 179.97 242.57 179.04Q244.28 178.10 244.28 176.23Q244.28 174.15 242.46 173.00Q240.64 171.86 237.73 171.08Q234.82 170.30 231.65 169.31Q228.48 168.32 225.56 166.71Q222.65 165.10 220.83 162.24Q219.01 159.38 219.01 154.80Q219.01 150.02 221.35 146.48Q223.69 142.95 228.06 140.97Q232.43 139.00 238.36 139.00Q244.60 139.00 249.64 141.18Q254.68 143.36 258.01 147.73L249.8 155.95Q247.51 153.14 244.65 151.89Q241.79 150.64 238.46 150.64Q235.44 150.64 233.83 151.58Q232.22 152.52 232.22 154.18Q232.22 156.05 234.04 157.09Q235.86 158.13 238.77 158.91Q241.68 159.69 244.86 160.68Q248.03 161.67 250.89 163.44Q253.75 165.20 255.57 168.12Q257.39 171.03 257.39 175.60Q257.39 182.99 252.08 187.30Q246.78 191.62 237.63 191.62Z" fill="#1F1A17"/><g transform="translate(264.51,144.00)" fill="none"><path d="M18 -4 c-5 -6 5 -10 0 -17" stroke="#C8553D" stroke-width="4.5" stroke-linecap="round"/><path d="M31 -4 c-5 -6 5 -10 0 -17" stroke="#C8553D" stroke-width="4.5" stroke-linecap="round"/><path d="M7 6 V36 a17 17 0 0 0 34 0 V6" stroke="#1F1A17" stroke-width="11"/><path d="M46 16 h5 a10 10 0 0 1 0 20 h-5" stroke="#1F1A17" stroke-width="7"/></g><path d="M354.55 191.52Q347.68 191.52 342.17 188.08Q336.66 184.65 333.54 178.72Q330.42 172.8 330.42 165.41Q330.42 157.92 333.54 152.0Q336.66 146.07 342.17 142.64Q347.68 139.20 354.55 139.20Q359.96 139.20 364.22 141.39Q367.03 142.84 369.11 145.03V140.24H382.63V190.48H369.11V185.59Q367.03 187.77 364.22 189.23Q359.96 191.52 354.55 191.52ZM357.04 178.93Q362.76 178.93 366.30 175.14Q369.84 171.34 369.84 165.31Q369.84 161.36 368.22 158.29Q366.61 155.22 363.75 153.50Q360.89 151.79 357.04 151.79Q353.30 151.79 350.44 153.50Q347.58 155.22 345.97 158.29Q344.36 161.36 344.36 165.31Q344.36 169.36 345.97 172.43Q347.58 175.50 350.44 177.22Q353.30 178.93 357.04 178.93Z" fill="#1F1A17"/><path d="M215.89 250.4Q213.64 250.4 211.72 249.57Q209.8 248.75 208.37 247.28Q206.95 245.81 206.17 243.86Q205.39 241.91 205.39 239.69Q205.39 237.44 206.17 235.49Q206.95 233.54 208.37 232.08Q209.8 230.63 211.70 229.80Q213.61 228.98 215.86 228.98Q218.32 228.98 220.18 229.82Q222.04 230.66 223.48 232.1L221.53 234.04Q220.54 232.94 219.11 232.31Q217.69 231.68 215.86 231.68Q214.21 231.68 212.83 232.26Q211.45 232.85 210.43 233.93Q209.41 235.01 208.85 236.48Q208.3 237.95 208.3 239.69Q208.3 241.43 208.85 242.9Q209.41 244.37 210.43 245.45Q211.45 246.53 212.83 247.11Q214.21 247.7 215.86 247.7Q217.81 247.7 219.25 247.05Q220.69 246.41 221.68 245.29L223.63 247.22Q222.19 248.72 220.25 249.56Q218.32 250.4 215.89 250.4Z" fill="#1F1A17"/><path d="M239.55 250.1 248.07 229.28H250.11L258.6 250.1H255.54L253.68 245.39H244.44L242.55 250.1ZM252.69 242.93 249.06 233.81 245.43 242.93Z" fill="#1F1A17"/><path d="M275.96 250.1V229.28H277.94L289.52 244.67V229.28H292.34V250.1H290.36L278.78 234.62V250.1Z" fill="#1F1A17"/><path d="M311.26 250.1V229.28H324.97V231.85H314.08V238.22H324.13V240.68H314.08V247.51H325.12V250.1Z" fill="#1F1A17"/><path d="M352.41 250.4Q350.16 250.4 348.24 249.57Q346.32 248.75 344.89 247.28Q343.47 245.81 342.69 243.86Q341.91 241.91 341.91 239.69Q341.91 237.44 342.69 235.49Q343.47 233.54 344.89 232.08Q346.32 230.63 348.22 229.80Q350.13 228.98 352.38 228.98Q354.84 228.98 356.7 229.82Q358.56 230.66 360.0 232.1L358.05 234.04Q357.06 232.94 355.63 232.31Q354.21 231.68 352.38 231.68Q350.73 231.68 349.35 232.26Q347.97 232.85 346.95 233.93Q345.93 235.01 345.37 236.48Q344.82 237.95 344.82 239.69Q344.82 241.43 345.37 242.9Q345.93 244.37 346.95 245.45Q347.97 246.53 349.35 247.11Q350.73 247.7 352.38 247.7Q354.33 247.7 355.77 247.05Q357.21 246.41 358.2 245.29L360.15 247.22Q358.71 248.72 356.77 249.56Q354.84 250.4 352.41 250.4Z" fill="#1F1A17"/><path d="M376.07 250.1 384.59 229.28H386.63L395.12 250.1H392.06L390.2 245.39H380.96L379.07 250.1ZM389.21 242.93 385.58 233.81 381.95 242.93Z" fill="#1F1A17"/></svg></a>
+      <nav class="nav" aria-label="Principal">
+        <a href="#produtos">Produtos</a>
+        <a href="#exemplos">Exemplos</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#pedido" class="btn btn-primary">Fazer pedido</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Destaque -->
+    <section class="hero">
+      <div class="container">
+        <div>
+          <p class="eyebrow">Canecas personalizadas</p>
+          <h1>O seu café merece uma caneca <em>só sua</em>.</h1>
+          <p>Coloque um nome, uma foto ou aquela frase que é a sua cara. Perfeita para presentear ou para começar o dia do seu jeito.</p>
+          <div class="hero-actions">
+            <a href="#produtos" class="btn btn-primary">Ver canecas</a>
+            <a href="#como-funciona" class="btn btn-outline">Como funciona</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <svg viewBox="0 0 200 180" role="img" aria-label="Caneca personalizada com a frase seu nome aqui">
+<defs>
+<linearGradient id="mhb" x1="0" x2="1"><stop offset="0" stop-color="#C9C4BF"/><stop offset=".22" stop-color="#FFFFFF"/><stop offset=".55" stop-color="#F1EEEB"/><stop offset="1" stop-color="#B9B3AD"/></linearGradient>
+<linearGradient id="mhi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9E3A26"/><stop offset="1" stop-color="#D9664D"/></linearGradient>
+<linearGradient id="mhh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D9664D"/><stop offset="1" stop-color="#9E3A26"/></linearGradient>
+<radialGradient id="mhs"><stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="100" cy="160" rx="78" ry="12" fill="url(#mhs)"/>
+<path d="M146 62 C190 58 192 132 146 128" fill="none" stroke="url(#mhh)" stroke-width="15" stroke-linecap="round"/>
+<path d="M40 38 L40 148 A52 12 0 0 0 144 148 L144 38 Z" fill="url(#mhb)"/>
+<ellipse cx="92" cy="38" rx="52" ry="12" fill="#FFFFFF"/>
+<ellipse cx="92" cy="39" rx="47.5" ry="9.5" fill="url(#mhi)"/>
+<rect x="54" y="50" width="7" height="92" rx="3.5" fill="#fff" opacity="0.65"/>
+<text x="92" y="98" text-anchor="middle" font-family="Outfit, sans-serif" font-size="15" font-weight="600" fill="#1F1A17">seu nome</text><text x="92" y="117" text-anchor="middle" font-family="Outfit, sans-serif" font-size="15" font-weight="600" fill="#C8553D">aqui</text></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produtos -->
+    <section class="section" id="produtos">
+      <div class="container">
+        <h2 class="section-title">Escolha a sua</h2>
+        <p class="section-sub">Todas são personalizadas com o que você quiser: nome, foto, frase ou desenho.</p>
+
+        <div class="products">
+          <!-- Caneca branca -->
+          <article class="card">
+            <div class="card-art">
+              <svg viewBox="0 0 200 180" role="img" aria-label="Caneca branca">
+<defs>
+<linearGradient id="mwb" x1="0" x2="1"><stop offset="0" stop-color="#C9C4BF"/><stop offset=".22" stop-color="#FFFFFF"/><stop offset=".55" stop-color="#F1EEEB"/><stop offset="1" stop-color="#B9B3AD"/></linearGradient>
+<linearGradient id="mwi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D8D3CE"/><stop offset="1" stop-color="#FAF8F6"/></linearGradient>
+<linearGradient id="mwh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E6E2DE"/><stop offset="1" stop-color="#BDB7B1"/></linearGradient>
+<radialGradient id="mws"><stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="100" cy="160" rx="78" ry="12" fill="url(#mws)"/>
+<path d="M146 62 C190 58 192 132 146 128" fill="none" stroke="url(#mwh)" stroke-width="15" stroke-linecap="round"/>
+<path d="M40 38 L40 148 A52 12 0 0 0 144 148 L144 38 Z" fill="url(#mwb)"/>
+<ellipse cx="92" cy="38" rx="52" ry="12" fill="#FFFFFF"/>
+<ellipse cx="92" cy="39" rx="47.5" ry="9.5" fill="url(#mwi)"/>
+<rect x="54" y="50" width="7" height="92" rx="3.5" fill="#fff" opacity="0.65"/>
+</svg>
+            </div>
+            <div class="card-body">
+              <h3>Caneca branca</h3>
+              <p>A clássica. Fundo branco que valoriza qualquer arte.</p>
+              <div class="price">R$ 35<small>,00</small></div>
+              <a class="btn btn-primary" href="https://wa.me/559281621225?text=Ol%C3%A1!%20Quero%20a%20Caneca%20branca%20(R%24%2035)." target="_blank" rel="noopener">Quero esta</a>
+            </div>
+          </article>
+
+          <!-- Caneca com alça e interior colorida -->
+          <article class="card">
+            <div class="card-art">
+              <svg viewBox="0 0 200 180" role="img" aria-label="Caneca branca com alça e interior coloridos">
+<defs>
+<linearGradient id="mcb" x1="0" x2="1"><stop offset="0" stop-color="#C9C4BF"/><stop offset=".22" stop-color="#FFFFFF"/><stop offset=".55" stop-color="#F1EEEB"/><stop offset="1" stop-color="#B9B3AD"/></linearGradient>
+<linearGradient id="mci" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9E3A26"/><stop offset="1" stop-color="#D9664D"/></linearGradient>
+<linearGradient id="mch" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D9664D"/><stop offset="1" stop-color="#9E3A26"/></linearGradient>
+<radialGradient id="mcs"><stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="100" cy="160" rx="78" ry="12" fill="url(#mcs)"/>
+<path d="M146 62 C190 58 192 132 146 128" fill="none" stroke="url(#mch)" stroke-width="15" stroke-linecap="round"/>
+<path d="M40 38 L40 148 A52 12 0 0 0 144 148 L144 38 Z" fill="url(#mcb)"/>
+<ellipse cx="92" cy="38" rx="52" ry="12" fill="#FFFFFF"/>
+<ellipse cx="92" cy="39" rx="47.5" ry="9.5" fill="url(#mci)"/>
+<rect x="54" y="50" width="7" height="92" rx="3.5" fill="#fff" opacity="0.65"/>
+</svg>
+            </div>
+            <div class="card-body">
+              <h3>Caneca com alça e interior colorida</h3>
+              <p>Branca por fora, com alça e parte de dentro coloridas.</p>
+              <div class="price">R$ 40<small>,00</small></div>
+              <a class="btn btn-primary" href="https://wa.me/559281621225?text=Ol%C3%A1!%20Quero%20a%20Caneca%20com%20al%C3%A7a%20e%20interior%20colorida%20(R%24%2040)." target="_blank" rel="noopener">Quero esta</a>
+            </div>
+          </article>
+
+          <!-- Caneca preta -->
+          <article class="card">
+            <div class="card-art">
+              <svg viewBox="0 0 200 180" role="img" aria-label="Caneca preta">
+<defs>
+<linearGradient id="mbb" x1="0" x2="1"><stop offset="0" stop-color="#0E0C0B"/><stop offset=".22" stop-color="#3A3532"/><stop offset=".55" stop-color="#1E1B19"/><stop offset="1" stop-color="#080707"/></linearGradient>
+<linearGradient id="mbi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050404"/><stop offset="1" stop-color="#2A2624"/></linearGradient>
+<linearGradient id="mbh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3A3532"/><stop offset="1" stop-color="#0A0908"/></linearGradient>
+<radialGradient id="mbs"><stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="100" cy="160" rx="78" ry="12" fill="url(#mbs)"/>
+<path d="M146 62 C190 58 192 132 146 128" fill="none" stroke="url(#mbh)" stroke-width="15" stroke-linecap="round"/>
+<path d="M40 38 L40 148 A52 12 0 0 0 144 148 L144 38 Z" fill="url(#mbb)"/>
+<ellipse cx="92" cy="38" rx="52" ry="12" fill="#3A3532"/>
+<ellipse cx="92" cy="39" rx="47.5" ry="9.5" fill="url(#mbi)"/>
+<rect x="54" y="50" width="7" height="92" rx="3.5" fill="#fff" opacity="0.18"/>
+</svg>
+            </div>
+            <div class="card-body">
+              <h3>Caneca preta</h3>
+              <p>Elegante e marcante, para quem gosta de um visual diferente.</p>
+              <div class="price">R$ 45<small>,00</small></div>
+              <a class="btn btn-primary" href="https://wa.me/559281621225?text=Ol%C3%A1!%20Quero%20a%20Caneca%20preta%20(R%24%2045)." target="_blank" rel="noopener">Quero esta</a>
+            </div>
+          </article>
+
+          <!-- Xícara -->
+          <article class="card">
+            <div class="card-art">
+              <svg viewBox="0 0 200 180" role="img" aria-label="Xícara com pires">
+<defs>
+<linearGradient id="cpb" x1="0" x2="1"><stop offset="0" stop-color="#C9C4BF"/><stop offset=".22" stop-color="#FFFFFF"/><stop offset=".55" stop-color="#F1EEEB"/><stop offset="1" stop-color="#B9B3AD"/></linearGradient>
+<linearGradient id="cpi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D8D3CE"/><stop offset="1" stop-color="#FAF8F6"/></linearGradient>
+<linearGradient id="cpp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#CFC9C3"/></linearGradient>
+<radialGradient id="cps"><stop offset="0" stop-color="#000" stop-opacity=".25"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="96" cy="152" rx="88" ry="14" fill="url(#cps)"/>
+<ellipse cx="94" cy="140" rx="80" ry="17" fill="url(#cpp)"/>
+<ellipse cx="94" cy="138" rx="50" ry="9" fill="#E4DFDA"/>
+<path d="M138 82 C168 80 168 120 132 118" fill="none" stroke="#DCD7D2" stroke-width="10" stroke-linecap="round"/>
+<path d="M44 66 C46 112 62 136 94 136 C126 136 142 112 144 66 Z" fill="url(#cpb)"/>
+<ellipse cx="94" cy="66" rx="50" ry="11" fill="#FFFFFF"/>
+<ellipse cx="94" cy="67" rx="45.5" ry="8.5" fill="url(#cpi)"/>
+<path d="M58 78 C60 104 66 118 74 126" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+</svg>
+            </div>
+            <div class="card-body">
+              <h3>Xícara</h3>
+              <p>Menor e charmosa, ideal para o cafezinho.</p>
+              <div class="price">R$ 35<small>,00</small></div>
+              <a class="btn btn-primary" href="https://wa.me/559281621225?text=Ol%C3%A1!%20Quero%20a%20X%C3%ADcara%20(R%24%2035)." target="_blank" rel="noopener">Quero esta</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exemplos -->
+    <section class="section examples" id="exemplos">
+      <div class="container">
+        <p class="eyebrow center">Inspire-se</p>
+        <h2 class="section-title">Ideias que viram presente</h2>
+        <p class="section-sub">Alguns exemplos de canecas personalizadas. Escolha um estilo e a gente adapta com o seu nome, foto ou frase.</p>
+        <div class="ex-grid">
+          <figure class="ex">
+            <button class="ex-photo" type="button" data-full="img/aniversario.webp" data-alt="Foto e mensagem de feliz aniversário" aria-label="Ampliar foto: Foto e mensagem de feliz aniversário">
+              <img src="img/aniversario.webp" alt="Foto e mensagem de feliz aniversário" loading="lazy" width="1092" height="1180">
+              <span class="ex-tag">Aniversário</span>
+            </button>
+            <figcaption>
+              <p>Para a amiga, com foto e recado especial.</p>
+              <a href="https://wa.me/559281621225?text=Ol%C3%A1%21%20Vi%20o%20exemplo%20%22Anivers%C3%A1rio%22%20no%20site%20e%20quero%20uma%20caneca%20assim." target="_blank" rel="noopener">Quero uma assim →</a>
+            </figcaption>
+          </figure>
+          <figure class="ex">
+            <button class="ex-photo" type="button" data-full="img/namorados.webp" data-alt="Foto do casal e calendário da data especial" aria-label="Ampliar foto: Foto do casal e calendário da data especial">
+              <img src="img/namorados.webp" alt="Foto do casal e calendário da data especial" loading="lazy" width="1092" height="1180">
+              <span class="ex-tag">Namorados</span>
+            </button>
+            <figcaption>
+              <p>A foto do casal e o calendário com a data marcada.</p>
+              <a href="https://wa.me/559281621225?text=Ol%C3%A1%21%20Vi%20o%20exemplo%20%22Namorados%22%20no%20site%20e%20quero%20uma%20caneca%20assim." target="_blank" rel="noopener">Quero uma assim →</a>
+            </figcaption>
+          </figure>
+          <figure class="ex">
+            <button class="ex-photo" type="button" data-full="img/nome-eliane.webp" data-alt="Caneca floral com nome e inicial" aria-label="Ampliar foto: Caneca floral com nome e inicial">
+              <img src="img/nome-eliane.webp" alt="Caneca floral com nome e inicial" loading="lazy" width="1092" height="1180">
+              <span class="ex-tag">Nome</span>
+            </button>
+            <figcaption>
+              <p>Nome com inicial em aquarela e flores delicadas.</p>
+              <a href="https://wa.me/559281621225?text=Ol%C3%A1%21%20Vi%20o%20exemplo%20%22Nome%22%20no%20site%20e%20quero%20uma%20caneca%20assim." target="_blank" rel="noopener">Quero uma assim →</a>
+            </figcaption>
+          </figure>
+          <figure class="ex">
+            <button class="ex-photo" type="button" data-full="img/professora.webp" data-alt="Caneca para professora com foto e mensagem" aria-label="Ampliar foto: Caneca para professora com foto e mensagem">
+              <img src="img/professora.webp" alt="Caneca para professora com foto e mensagem" loading="lazy" width="1092" height="1180">
+              <span class="ex-tag">Professores</span>
+            </button>
+            <figcaption>
+              <p>Homenagem com foto e mensagem para a melhor prof.</p>
+              <a href="https://wa.me/559281621225?text=Ol%C3%A1%21%20Vi%20o%20exemplo%20%22Professores%22%20no%20site%20e%20quero%20uma%20caneca%20assim." target="_blank" rel="noopener">Quero uma assim →</a>
+            </figcaption>
+          </figure>
+          <figure class="ex">
+            <button class="ex-photo" type="button" data-full="img/letras-natal.webp" data-alt="Canecas com iniciais e nomes para o Natal" aria-label="Ampliar foto: Canecas com iniciais e nomes para o Natal">
+              <img src="img/letras-natal.webp" alt="Canecas com iniciais e nomes para o Natal" loading="lazy" width="1092" height="1180">
+              <span class="ex-tag">Natal e eventos</span>
+            </button>
+            <figcaption>
+              <p>Iniciais e nomes para lembrancinhas em quantidade.</p>
+              <a href="https://wa.me/559281621225?text=Ol%C3%A1%21%20Vi%20o%20exemplo%20%22Natal%20e%20eventos%22%20no%20site%20e%20quero%20uma%20caneca%20assim." target="_blank" rel="noopener">Quero uma assim →</a>
+            </figcaption>
+          </figure>
+          <figure class="ex">
+            <button class="ex-photo" type="button" data-full="img/aparecida.webp" data-alt="Caneca de Nossa Senhora Aparecida em aquarela azul" aria-label="Ampliar foto: Caneca de Nossa Senhora Aparecida em aquarela azul">
+              <img src="img/aparecida.webp" alt="Caneca de Nossa Senhora Aparecida em aquarela azul" loading="lazy" width="1092" height="1180">
+              <span class="ex-tag">Religiosa</span>
+            </button>
+            <figcaption>
+              <p>Nossa Senhora Aparecida em aquarela azul.</p>
+              <a href="https://wa.me/559281621225?text=Ol%C3%A1%21%20Vi%20o%20exemplo%20%22Religiosa%22%20no%20site%20e%20quero%20uma%20caneca%20assim." target="_blank" rel="noopener">Quero uma assim →</a>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Foto ampliada">
+      <button class="lightbox-close" type="button" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+      <img id="lightbox-img" src="" alt="">
+    </dialog>
+
+    <!-- Como funciona -->
+    <section class="section steps-section" id="como-funciona">
+      <div class="container">
+        <h2 class="section-title">Como funciona</h2>
+        <p class="section-sub">Simples, rápido e do seu jeito.</p>
+        <ol class="steps">
+          <li>
+            <h3>Escolha o modelo</h3>
+            <p>Branca, colorida por dentro, preta ou xícara.</p>
+          </li>
+          <li>
+            <h3>Envie sua ideia</h3>
+            <p>Mande pelo WhatsApp o nome, a foto ou a frase que quer na caneca.</p>
+          </li>
+          <li>
+            <h3>Aprove a arte</h3>
+            <p>Mostramos como vai ficar antes de produzir.</p>
+          </li>
+          <li>
+            <h3>Receba a sua</h3>
+            <p>Combinamos a entrega ou a retirada.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Chamada final -->
+    <section class="section cta" id="pedido">
+      <div class="container">
+        <h2>Bora criar a sua caneca?</h2>
+        <p>Chama a gente no WhatsApp e conta a sua ideia.</p>
+        <a class="btn btn-primary" href="https://wa.me/559281621225?text=Ol%C3%A1!%20Quero%20fazer%20uma%20caneca%20personalizada." target="_blank" rel="noopener">Pedir pelo WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="container">
+      <span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="176.0 92.5 248.0 185.6" aria-hidden="true" focusable="false"><path d="M237.63 191.62Q233.36 191.62 229.26 190.48Q225.15 189.33 221.72 187.30Q218.28 185.28 215.79 182.36L223.90 174.15Q226.50 177.06 229.93 178.52Q233.36 179.97 237.52 179.97Q240.85 179.97 242.57 179.04Q244.28 178.10 244.28 176.23Q244.28 174.15 242.46 173.00Q240.64 171.86 237.73 171.08Q234.82 170.30 231.65 169.31Q228.48 168.32 225.56 166.71Q222.65 165.10 220.83 162.24Q219.01 159.38 219.01 154.80Q219.01 150.02 221.35 146.48Q223.69 142.95 228.06 140.97Q232.43 139.00 238.36 139.00Q244.60 139.00 249.64 141.18Q254.68 143.36 258.01 147.73L249.8 155.95Q247.51 153.14 244.65 151.89Q241.79 150.64 238.46 150.64Q235.44 150.64 233.83 151.58Q232.22 152.52 232.22 154.18Q232.22 156.05 234.04 157.09Q235.86 158.13 238.77 158.91Q241.68 159.69 244.86 160.68Q248.03 161.67 250.89 163.44Q253.75 165.20 255.57 168.12Q257.39 171.03 257.39 175.60Q257.39 182.99 252.08 187.30Q246.78 191.62 237.63 191.62Z" fill="#F4EFE9"/><g transform="translate(264.51,144.00)" fill="none"><path d="M18 -4 c-5 -6 5 -10 0 -17" stroke="#C8553D" stroke-width="4.5" stroke-linecap="round"/><path d="M31 -4 c-5 -6 5 -10 0 -17" stroke="#C8553D" stroke-width="4.5" stroke-linecap="round"/><path d="M7 6 V36 a17 17 0 0 0 34 0 V6" stroke="#F4EFE9" stroke-width="11"/><path d="M46 16 h5 a10 10 0 0 1 0 20 h-5" stroke="#F4EFE9" stroke-width="7"/></g><path d="M354.55 191.52Q347.68 191.52 342.17 188.08Q336.66 184.65 333.54 178.72Q330.42 172.8 330.42 165.41Q330.42 157.92 333.54 152.0Q336.66 146.07 342.17 142.64Q347.68 139.20 354.55 139.20Q359.96 139.20 364.22 141.39Q367.03 142.84 369.11 145.03V140.24H382.63V190.48H369.11V185.59Q367.03 187.77 364.22 189.23Q359.96 191.52 354.55 191.52ZM357.04 178.93Q362.76 178.93 366.30 175.14Q369.84 171.34 369.84 165.31Q369.84 161.36 368.22 158.29Q366.61 155.22 363.75 153.50Q360.89 151.79 357.04 151.79Q353.30 151.79 350.44 153.50Q347.58 155.22 345.97 158.29Q344.36 161.36 344.36 165.31Q344.36 169.36 345.97 172.43Q347.58 175.50 350.44 177.22Q353.30 178.93 357.04 178.93Z" fill="#F4EFE9"/><path d="M215.89 250.4Q213.64 250.4 211.72 249.57Q209.8 248.75 208.37 247.28Q206.95 245.81 206.17 243.86Q205.39 241.91 205.39 239.69Q205.39 237.44 206.17 235.49Q206.95 233.54 208.37 232.08Q209.8 230.63 211.70 229.80Q213.61 228.98 215.86 228.98Q218.32 228.98 220.18 229.82Q222.04 230.66 223.48 232.1L221.53 234.04Q220.54 232.94 219.11 232.31Q217.69 231.68 215.86 231.68Q214.21 231.68 212.83 232.26Q211.45 232.85 210.43 233.93Q209.41 235.01 208.85 236.48Q208.3 237.95 208.3 239.69Q208.3 241.43 208.85 242.9Q209.41 244.37 210.43 245.45Q211.45 246.53 212.83 247.11Q214.21 247.7 215.86 247.7Q217.81 247.7 219.25 247.05Q220.69 246.41 221.68 245.29L223.63 247.22Q222.19 248.72 220.25 249.56Q218.32 250.4 215.89 250.4Z" fill="#F4EFE9"/><path d="M239.55 250.1 248.07 229.28H250.11L258.6 250.1H255.54L253.68 245.39H244.44L242.55 250.1ZM252.69 242.93 249.06 233.81 245.43 242.93Z" fill="#F4EFE9"/><path d="M275.96 250.1V229.28H277.94L289.52 244.67V229.28H292.34V250.1H290.36L278.78 234.62V250.1Z" fill="#F4EFE9"/><path d="M311.26 250.1V229.28H324.97V231.85H314.08V238.22H324.13V240.68H314.08V247.51H325.12V250.1Z" fill="#F4EFE9"/><path d="M352.41 250.4Q350.16 250.4 348.24 249.57Q346.32 248.75 344.89 247.28Q343.47 245.81 342.69 243.86Q341.91 241.91 341.91 239.69Q341.91 237.44 342.69 235.49Q343.47 233.54 344.89 232.08Q346.32 230.63 348.22 229.80Q350.13 228.98 352.38 228.98Q354.84 228.98 356.7 229.82Q358.56 230.66 360.0 232.1L358.05 234.04Q357.06 232.94 355.63 232.31Q354.21 231.68 352.38 231.68Q350.73 231.68 349.35 232.26Q347.97 232.85 346.95 233.93Q345.93 235.01 345.37 236.48Q344.82 237.95 344.82 239.69Q344.82 241.43 345.37 242.9Q345.93 244.37 346.95 245.45Q347.97 246.53 349.35 247.11Q350.73 247.7 352.38 247.7Q354.33 247.7 355.77 247.05Q357.21 246.41 358.2 245.29L360.15 247.22Q358.71 248.72 356.77 249.56Q354.84 250.4 352.41 250.4Z" fill="#F4EFE9"/><path d="M376.07 250.1 384.59 229.28H386.63L395.12 250.1H392.06L390.2 245.39H380.96L379.07 250.1ZM389.21 242.93 385.58 233.81 381.95 242.93Z" fill="#F4EFE9"/></svg></span>
+      <p>© 2026 Sua Caneca · Canecas personalizadas</p>
+    </div>
+  </footer>
+
+
+  <script>
+    // Ampliar fotos dos exemplos
+    const box = document.getElementById('lightbox');
+    const boxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.ex-photo').forEach(btn => {
+      btn.addEventListener('click', () => {
+        boxImg.src = btn.dataset.full;
+        boxImg.alt = btn.dataset.alt;
+        box.showModal();
+      });
+    });
+    box.querySelector('.lightbox-close').addEventListener('click', () => box.close());
+    box.addEventListener('click', e => { if (e.target === box) box.close(); });
+  </script>
+</body>
+</html>
